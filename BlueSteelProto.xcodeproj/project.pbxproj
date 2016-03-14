@@ -7,14 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103DE0241C95E3440003FC67 /* BlueSteel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103DE0231C95E3440003FC67 /* BlueSteel.framework */; };
+		103DE0251C95E3440003FC67 /* BlueSteel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 103DE0231C95E3440003FC67 /* BlueSteel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		107FF7661C95DFD200076572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107FF7651C95DFD200076572 /* AppDelegate.swift */; };
 		107FF7681C95DFD200076572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107FF7671C95DFD200076572 /* ViewController.swift */; };
 		107FF76B1C95DFD200076572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107FF7691C95DFD200076572 /* Main.storyboard */; };
 		107FF76D1C95DFD200076572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107FF76C1C95DFD200076572 /* Assets.xcassets */; };
 		107FF7701C95DFD300076572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107FF76E1C95DFD300076572 /* LaunchScreen.storyboard */; };
+		10D3CA421C95E6730065C9F9 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */; };
+		10D3CA431C95E6730065C9F9 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		10D3CA451C95ECC80065C9F9 /* UIEvent.avsc in Resources */ = {isa = PBXBuildFile; fileRef = 10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		103DE0261C95E3440003FC67 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				10D3CA431C95E6730065C9F9 /* SwiftyJSON.framework in Embed Frameworks */,
+				103DE0251C95E3440003FC67 /* BlueSteel.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		103DE0231C95E3440003FC67 /* BlueSteel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlueSteel.framework; path = Carthage/Build/iOS/BlueSteel.framework; sourceTree = "<group>"; };
 		107FF7621C95DFD200076572 /* BlueSteelProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueSteelProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		107FF7651C95DFD200076572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107FF7671C95DFD200076572 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +43,8 @@
 		107FF76C1C95DFD200076572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		107FF76F1C95DFD300076572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		107FF7711C95DFD300076572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIEvent.avsc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10D3CA421C95E6730065C9F9 /* SwiftyJSON.framework in Frameworks */,
+				103DE0241C95E3440003FC67 /* BlueSteel.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +63,8 @@
 		107FF7591C95DFD200076572 = {
 			isa = PBXGroup;
 			children = (
+				10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */,
+				103DE0231C95E3440003FC67 /* BlueSteel.framework */,
 				107FF7641C95DFD200076572 /* BlueSteelProto */,
 				107FF7631C95DFD200076572 /* Products */,
 			);
@@ -54,6 +81,7 @@
 		107FF7641C95DFD200076572 /* BlueSteelProto */ = {
 			isa = PBXGroup;
 			children = (
+				10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */,
 				107FF7651C95DFD200076572 /* AppDelegate.swift */,
 				107FF7671C95DFD200076572 /* ViewController.swift */,
 				107FF7691C95DFD200076572 /* Main.storyboard */,
@@ -74,6 +102,8 @@
 				107FF75E1C95DFD200076572 /* Sources */,
 				107FF75F1C95DFD200076572 /* Frameworks */,
 				107FF7601C95DFD200076572 /* Resources */,
+				103DE0261C95E3440003FC67 /* Embed Frameworks */,
+				103DE0271C95E4510003FC67 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,10 +156,27 @@
 				107FF7701C95DFD300076572 /* LaunchScreen.storyboard in Resources */,
 				107FF76D1C95DFD200076572 /* Assets.xcassets in Resources */,
 				107FF76B1C95DFD200076572 /* Main.storyboard in Resources */,
+				10D3CA451C95ECC80065C9F9 /* UIEvent.avsc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		103DE0271C95E4510003FC67 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PROJECT_DIR\"/Carthage/Checkouts/BlueSteel/BuildControl/bin/stripCarthageFrameworks.sh -p iOS\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		107FF75E1C95DFD200076572 /* Sources */ = {
@@ -250,6 +297,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BlueSteelProto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smooshstudio.BlueSteelProto;
@@ -261,6 +312,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BlueSteelProto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smooshstudio.BlueSteelProto;
@@ -287,6 +342,7 @@
 				107FF7761C95DFD300076572 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
