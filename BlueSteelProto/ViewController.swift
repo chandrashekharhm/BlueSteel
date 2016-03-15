@@ -14,6 +14,16 @@ struct componentVersionStruct {
 	var build: String
 }
 
+struct ipStruct {
+	var ip: String
+}
+
+extension ipStruct : AvroValueConvertible {
+	func toAvro() -> AvroValue {
+		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.ip.toAvro()))
+	}
+}
+
 extension componentVersionStruct : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroRecordValue([
@@ -28,6 +38,7 @@ struct uiEventStruct {
 	var serviceTimestamp: Int64 = 0
 	var deviceId: String
 	var componentVersion: componentVersionStruct
+	var ip: ipStruct
 }
 
 extension uiEventStruct : AvroValueConvertible {
@@ -36,7 +47,8 @@ extension uiEventStruct : AvroValueConvertible {
 			"deviceTimestamp"	: self.deviceTimestamp.toAvro(),
 			"serviceTimestamp"	: self.serviceTimestamp.toAvro(),
 			"deviceId"			: self.deviceId.toAvro(),
-			"componentVersion"	: self.componentVersion.toAvro()
+			"componentVersion"	: self.componentVersion.toAvro(),
+			"ip"				: self.ip.toAvro()
 			])
 	}
 }
@@ -66,18 +78,24 @@ class ViewController: UIViewController {
 			// Get Schema Path from Bundle
 			let schemaPath = NSBundle.mainBundle().pathForResource("UIEvent", ofType: "avsc")! as String
 			
-			// Load JSON Schema
+			// Load JSON Schema from Bundle
 			let jsonSchema = try String(contentsOfFile: schemaPath, usedEncoding: nil)
 			print(jsonSchema)
-
+			
+			// Create Avro Schema
 			let schema = Schema(jsonSchema)
-			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "mydeviceid", componentVersion: componentVersionStruct(component: "mycomponent", build: "mybuild"))
-	
+
+			// Create UIEvent Swift Struct
+			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "mydeviceid", componentVersion: componentVersionStruct(component: "mycomponent", build: "mybuild"), ip: ipStruct(ip: "192.168.0.1"))
+			
+			// Cast UIEvent to Avro Types
 			print (uiEvt.toAvro())
 			
+			// Serialize UIEvent to Byte Array
 			var serialized: [UInt8] = uiEvt.toAvro().encode(schema)!
 			
 			print("serialized uiEvent: \(serialized)")
+
 			let deserialized = AvroValue(schema: schema, withBytes: serialized)
 			print("deserialized uiEvent: \(deserialized)")
 			

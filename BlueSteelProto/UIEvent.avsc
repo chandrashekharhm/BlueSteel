@@ -18,6 +18,7 @@
 							{"name": "build", "type": "string"}
 						]
 		},
-	}
+	},
+	{"name": "ip", "type": ["null", "string"], "doc":"device should always pass null"}
   ]
 }
