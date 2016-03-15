@@ -14,7 +14,7 @@ struct componentVersionStruct {
 	var build: String
 }
 
-struct ipStruct {
+struct ipAddress {
 	var ip: String
 }
 
@@ -22,7 +22,7 @@ struct contentAttributionIDStruct {
 	var contentAttributionID: String
 }
 
-extension ipStruct : AvroValueConvertible {
+extension ipAddress : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.ip.toAvro()))							// make sure value serialized
 	}
@@ -43,7 +43,7 @@ extension componentVersionStruct : AvroValueConvertible {
 	}
 }
 
-struct uiEventStruct {
+struct uiEvent {
 	var deviceTimestamp: Int64 = 0
 	var serviceTimestamp: Int64 = 0
 	var deviceId: String
@@ -52,7 +52,7 @@ struct uiEventStruct {
 	var sessionId: String
 	var componentVersion: componentVersionStruct
 	var deviceType: String
-	var ip: ipStruct
+	var ip: ipAddress
 	var timeZone: String
 	var contentAttributionID: contentAttributionIDStruct
 	var uiType: String
@@ -60,7 +60,7 @@ struct uiEventStruct {
 	var sourcescreen: String
 }
 
-extension uiEventStruct : AvroValueConvertible {
+extension uiEvent : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroRecordValue([
 			"deviceTimestamp"		: self.deviceTimestamp.toAvro(),
@@ -101,7 +101,7 @@ class ViewController: UIViewController {
 			let schema = Schema(jsonSchema)
 
 			// Create UIEvent Swift Struct
-			let uiEvt = uiEventStruct(
+			let uiEvt = uiEvent(
 										deviceTimestamp: 25,
 										serviceTimestamp: 77,
 										deviceId: "MyDeviceID",
@@ -110,7 +110,7 @@ class ViewController: UIViewController {
 										sessionId: "MYSessionID",
 										componentVersion:  componentVersionStruct(component: "MYComponent", build: "MyBuild"),
 										deviceType: "MyDeviceType",
-										ip: ipStruct(ip: "192.168.0.1"),
+										ip: ipAddress(ip: "192.168.0.1"),
 										timeZone: "PST",
 										contentAttributionID: contentAttributionIDStruct(contentAttributionID: "MYcontentAttributionIDStruct"),
 										uiType: "MyUIType",
