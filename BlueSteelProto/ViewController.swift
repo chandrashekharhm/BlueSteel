@@ -41,6 +41,7 @@ struct uiEventStruct {
 	var profileId: String
 	var sessionId: String
 	var componentVersion: componentVersionStruct
+	var deviceType: String
 	var ip: ipStruct
 }
 
@@ -53,7 +54,8 @@ extension uiEventStruct : AvroValueConvertible {
 			"accountId"			: self.accountId.toAvro(),
 			"profileId"			: self.profileId.toAvro(),
 			"sessionId"			: self.sessionId.toAvro(),
-			"componentVersion"	: self.componentVersion.toAvro(),
+			"componentVersion"	: self.componentVersion.toAvro(),		// proof, add union
+			"deviceType"		: self.deviceType.toAvro(),
 			"ip"				: self.ip.toAvro()
 			])
 	}
@@ -79,8 +81,7 @@ class ViewController: UIViewController {
 			let schema = Schema(jsonSchema)
 
 			// Create UIEvent Swift Struct
-			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "mydeviceid", accountId: "myaccountId", profileId: "myprofileId", sessionId: "mysessionId",
-				componentVersion: componentVersionStruct(component: "mycomponent", build: "mybuild"), ip: ipStruct(ip: "192.168.0.1"))
+			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "MyDeviceID", accountId: "MYAccountID", profileId: "MYProfileID", sessionId: "MYSessionID", componentVersion:  componentVersionStruct(component: "MYComponent", build: "MyBuild"), deviceType: "MyDeviceType", ip: ipStruct(ip: "192.168.0.1"))
 			
 			// Cast UIEvent to Avro Types
 			print (uiEvt.toAvro())
@@ -97,7 +98,7 @@ class ViewController: UIViewController {
 		} catch let error as NSError {
 			print("Error loading JSON Schema: \(error)")
 		}
-				
+		
 	}
 
 	override func didReceiveMemoryWarning() {
