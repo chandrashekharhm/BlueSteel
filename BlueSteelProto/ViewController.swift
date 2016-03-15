@@ -81,7 +81,17 @@ class ViewController: UIViewController {
 			let schema = Schema(jsonSchema)
 
 			// Create UIEvent Swift Struct
-			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "MyDeviceID", accountId: "MYAccountID", profileId: "MYProfileID", sessionId: "MYSessionID", componentVersion:  componentVersionStruct(component: "MYComponent", build: "MyBuild"), deviceType: "MyDeviceType", ip: ipStruct(ip: "192.168.0.1"))
+			let uiEvt = uiEventStruct(
+										deviceTimestamp: 25,
+										serviceTimestamp: 77,
+										deviceId: "MyDeviceID",
+										accountId: "MYAccountID",
+										profileId: "MYProfileID",
+										sessionId: "MYSessionID",
+										componentVersion:  componentVersionStruct(component: "MYComponent", build: "MyBuild"),
+										deviceType: "MyDeviceType",
+										ip: ipStruct(ip: "192.168.0.1")
+									)
 			
 			// Cast UIEvent to Avro Types
 			print (uiEvt.toAvro())
@@ -93,7 +103,6 @@ class ViewController: UIViewController {
 			// Deserialize Byte Array to AvroValue
 			let deserialized = AvroValue(schema: schema, withBytes: serialized)
 			print("\nDeserialized uiEvent: \(deserialized) \n")
-			
 			
 		} catch let error as NSError {
 			print("Error loading JSON Schema: \(error)")
