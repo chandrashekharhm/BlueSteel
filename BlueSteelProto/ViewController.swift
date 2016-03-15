@@ -57,6 +57,7 @@ struct uiEventStruct {
 	var contentAttributionID: contentAttributionIDStruct
 	var uiType: String
 	var uiAction: String
+	var sourcescreen: String
 }
 
 extension uiEventStruct : AvroValueConvertible {
@@ -75,6 +76,7 @@ extension uiEventStruct : AvroValueConvertible {
 			"contentAttributionID"	: self.contentAttributionID.toAvro(),
 			"uiType"				: self.uiType.toAvro(),
 			"uiAction"				: self.uiAction.toAvro(),
+			"sourcescreen"			: self.sourcescreen.toAvro()
 			])
 	}
 }
@@ -112,7 +114,8 @@ class ViewController: UIViewController {
 										timeZone: "PST",
 										contentAttributionID: contentAttributionIDStruct(contentAttributionID: "MYcontentAttributionIDStruct"),
 										uiType: "MyUIType",
-										uiAction: "MyUIAction"
+										uiAction: "MyUIAction",
+										sourcescreen: "MySourceScreen"
 									)
 			
 			// Cast UIEvent to Avro Types

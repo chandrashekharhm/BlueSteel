@@ -26,6 +26,7 @@
 	{"name": "timeZone", "type": "string"},
 	{"name": "contentAttributionID", "type": ["null", "string"]},
 	{"name": "uiType", "type": "string"},
-	{"name": "uiAction", "type": "string"}
+	{"name": "uiAction", "type": "string"},
+	{"name": "sourcescreen", "type": "string"}
   ]
 }
