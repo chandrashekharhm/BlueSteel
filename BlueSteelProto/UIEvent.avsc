@@ -8,6 +8,9 @@
 	{"name": "deviceTimestamp", "type": "long"},
 	{"name": "serviceTimestamp", "type": "long", "doc":"device should always pass null"},
 	{"name": "deviceId", "type": "string"},
+	{"name": "accountId", "type": "string"},
+	{"name": "profileId", "type": "string"},
+	{"name": "sessionId", "type": "string"},
 	{
 		"name": "componentVersion",
 		"type": {

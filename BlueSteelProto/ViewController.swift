@@ -37,6 +37,9 @@ struct uiEventStruct {
 	var deviceTimestamp: Int64 = 0
 	var serviceTimestamp: Int64 = 0
 	var deviceId: String
+	var accountId: String
+	var profileId: String
+	var sessionId: String
 	var componentVersion: componentVersionStruct
 	var ip: ipStruct
 }
@@ -47,25 +50,15 @@ extension uiEventStruct : AvroValueConvertible {
 			"deviceTimestamp"	: self.deviceTimestamp.toAvro(),
 			"serviceTimestamp"	: self.serviceTimestamp.toAvro(),
 			"deviceId"			: self.deviceId.toAvro(),
+			"accountId"			: self.accountId.toAvro(),
+			"profileId"			: self.profileId.toAvro(),
+			"sessionId"			: self.sessionId.toAvro(),
 			"componentVersion"	: self.componentVersion.toAvro(),
 			"ip"				: self.ip.toAvro()
 			])
 	}
 }
 
-
-/*
-{"name": "deviceVersion",
-	"type": ["null", {"type": "array", "items": {
-	"name": "componentVersion",
-	"type": "record",
-	"fields": [
-	{"name": "component", "type": "string"},
-	{"name": "build", "type": "string"},
-	{"name": "otherDetail", "type": ["null", {"type": "map", "values": "string"}]}
-	]
-	}}]
-*/
 
 class ViewController: UIViewController {
 	
@@ -86,38 +79,25 @@ class ViewController: UIViewController {
 			let schema = Schema(jsonSchema)
 
 			// Create UIEvent Swift Struct
-			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "mydeviceid", componentVersion: componentVersionStruct(component: "mycomponent", build: "mybuild"), ip: ipStruct(ip: "192.168.0.1"))
+			let uiEvt = uiEventStruct(deviceTimestamp: 25, serviceTimestamp: 77, deviceId: "mydeviceid", accountId: "myaccountId", profileId: "myprofileId", sessionId: "mysessionId",
+				componentVersion: componentVersionStruct(component: "mycomponent", build: "mybuild"), ip: ipStruct(ip: "192.168.0.1"))
 			
 			// Cast UIEvent to Avro Types
 			print (uiEvt.toAvro())
 			
 			// Serialize UIEvent to Byte Array
-			var serialized: [UInt8] = uiEvt.toAvro().encode(schema)!
-			
-			print("serialized uiEvent: \(serialized)")
+			let serialized: [UInt8] = uiEvt.toAvro().encode(schema)!
+			print("\nSerialized uiEvent: \(serialized) \n")
 
+			// Deserialize Byte Array to AvroValue
 			let deserialized = AvroValue(schema: schema, withBytes: serialized)
-			print("deserialized uiEvent: \(deserialized)")
+			print("\nDeserialized uiEvent: \(deserialized) \n")
 			
 			
 		} catch let error as NSError {
 			print("Error loading JSON Schema: \(error)")
 		}
-		
-		/*
-		let rawBytes: [UInt8] = [0x6, 0x66, 0x6f, 0x6f]
-		let avro = AvroValue(schema: schema, withBytes: rawBytes)
-	
-
-		if let avroString = avro.string {
-			print(avroString) // Prints "foo"
-		}
-		
-		if let serialized = avro.encode(schema) {
-			print(serialized) // Prints [6, 102, 111, 111]
-		}
-*/
-		
+				
 	}
 
 	override func didReceiveMemoryWarning() {
