@@ -24,6 +24,8 @@
 	},
 	{"name": "ip", "type": ["null", "string"], "doc":"device should always pass null"},
 	{"name": "timeZone", "type": "string"},
-	{"name": "contentAttributionID", "type": ["null", "string"]}
+	{"name": "contentAttributionID", "type": ["null", "string"]},
+	{"name": "uiType", "type": "string"},
+	{"name": "uiAction", "type": "string"}
   ]
 }

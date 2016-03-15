@@ -55,6 +55,8 @@ struct uiEventStruct {
 	var ip: ipStruct
 	var timeZone: String
 	var contentAttributionID: contentAttributionIDStruct
+	var uiType: String
+	var uiAction: String
 }
 
 extension uiEventStruct : AvroValueConvertible {
@@ -70,7 +72,9 @@ extension uiEventStruct : AvroValueConvertible {
 			"deviceType"			: self.deviceType.toAvro(),
 			"ip"					: self.ip.toAvro(),
 			"timeZone"				: self.timeZone.toAvro(),
-			"contentAttributionID"	: self.contentAttributionID.toAvro()
+			"contentAttributionID"	: self.contentAttributionID.toAvro(),
+			"uiType"				: self.uiType.toAvro(),
+			"uiAction"				: self.uiAction.toAvro(),
 			])
 	}
 }
@@ -106,7 +110,9 @@ class ViewController: UIViewController {
 										deviceType: "MyDeviceType",
 										ip: ipStruct(ip: "192.168.0.1"),
 										timeZone: "PST",
-										contentAttributionID: contentAttributionIDStruct(contentAttributionID: "MYcontentAttributionIDStruct")
+										contentAttributionID: contentAttributionIDStruct(contentAttributionID: "MYcontentAttributionIDStruct"),
+										uiType: "MyUIType",
+										uiAction: "MyUIAction"
 									)
 			
 			// Cast UIEvent to Avro Types
@@ -119,6 +125,7 @@ class ViewController: UIViewController {
 			// Deserialize Byte Array to AvroValue
 			let deserialized = AvroValue(schema: schema, withBytes: serialized)
 			print("\nDeserialized uiEvent: \(deserialized) \n")
+			
 			
 		} catch let error as NSError {
 			print("Error loading JSON Schema: \(error)")
