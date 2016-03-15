@@ -23,6 +23,7 @@
 		},
 	},
 	{"name": "ip", "type": ["null", "string"], "doc":"device should always pass null"},
-	{"name": "timeZone", "type": "string"}
+	{"name": "timeZone", "type": "string"},
+	{"name": "contentAttributionID", "type": ["null", "string"]}
   ]
 }

@@ -18,9 +18,19 @@ struct ipStruct {
 	var ip: String
 }
 
+struct contentAttributionIDStruct {
+	var contentAttributionID: String
+}
+
 extension ipStruct : AvroValueConvertible {
 	func toAvro() -> AvroValue {
-		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.ip.toAvro()))
+		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.ip.toAvro()))							// make sure value serialized
+	}
+}
+
+extension contentAttributionIDStruct : AvroValueConvertible {
+	func toAvro() -> AvroValue {
+		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.contentAttributionID.toAvro()))			// make sure value serialized
 	}
 }
 
@@ -44,21 +54,23 @@ struct uiEventStruct {
 	var deviceType: String
 	var ip: ipStruct
 	var timeZone: String
+	var contentAttributionID: contentAttributionIDStruct
 }
 
 extension uiEventStruct : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroRecordValue([
-			"deviceTimestamp"	: self.deviceTimestamp.toAvro(),
-			"serviceTimestamp"	: self.serviceTimestamp.toAvro(),
-			"deviceId"			: self.deviceId.toAvro(),
-			"accountId"			: self.accountId.toAvro(),
-			"profileId"			: self.profileId.toAvro(),
-			"sessionId"			: self.sessionId.toAvro(),
-			"componentVersion"	: self.componentVersion.toAvro(),		// proof, add union
-			"deviceType"		: self.deviceType.toAvro(),
-			"ip"				: self.ip.toAvro(),
-			"timeZone"			: self.timeZone.toAvro(),
+			"deviceTimestamp"		: self.deviceTimestamp.toAvro(),
+			"serviceTimestamp"		: self.serviceTimestamp.toAvro(),
+			"deviceId"				: self.deviceId.toAvro(),
+			"accountId"				: self.accountId.toAvro(),
+			"profileId"				: self.profileId.toAvro(),
+			"sessionId"				: self.sessionId.toAvro(),
+			"componentVersion"		: self.componentVersion.toAvro(),		// proof, add union
+			"deviceType"			: self.deviceType.toAvro(),
+			"ip"					: self.ip.toAvro(),
+			"timeZone"				: self.timeZone.toAvro(),
+			"contentAttributionID"	: self.contentAttributionID.toAvro()
 			])
 	}
 }
@@ -93,7 +105,8 @@ class ViewController: UIViewController {
 										componentVersion:  componentVersionStruct(component: "MYComponent", build: "MyBuild"),
 										deviceType: "MyDeviceType",
 										ip: ipStruct(ip: "192.168.0.1"),
-										timeZone: "PST"
+										timeZone: "PST",
+										contentAttributionID: contentAttributionIDStruct(contentAttributionID: "MYcontentAttributionIDStruct")
 									)
 			
 			// Cast UIEvent to Avro Types
