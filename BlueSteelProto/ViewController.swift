@@ -43,6 +43,7 @@ struct uiEventStruct {
 	var componentVersion: componentVersionStruct
 	var deviceType: String
 	var ip: ipStruct
+	var timeZone: String
 }
 
 extension uiEventStruct : AvroValueConvertible {
@@ -56,7 +57,8 @@ extension uiEventStruct : AvroValueConvertible {
 			"sessionId"			: self.sessionId.toAvro(),
 			"componentVersion"	: self.componentVersion.toAvro(),		// proof, add union
 			"deviceType"		: self.deviceType.toAvro(),
-			"ip"				: self.ip.toAvro()
+			"ip"				: self.ip.toAvro(),
+			"timeZone"			: self.timeZone.toAvro(),
 			])
 	}
 }
@@ -90,7 +92,8 @@ class ViewController: UIViewController {
 										sessionId: "MYSessionID",
 										componentVersion:  componentVersionStruct(component: "MYComponent", build: "MyBuild"),
 										deviceType: "MyDeviceType",
-										ip: ipStruct(ip: "192.168.0.1")
+										ip: ipStruct(ip: "192.168.0.1"),
+										timeZone: "PST"
 									)
 			
 			// Cast UIEvent to Avro Types
