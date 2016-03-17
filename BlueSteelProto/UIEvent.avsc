@@ -1,32 +1,13 @@
 {
-  "namespace": "oncue.ws.client.ui",
-  "type": "record",
-  "name": "UIEvent",
-  "event.version": "0.0.4",
-  "doc": "Represent UI actions and consequent states",
-  "fields": [
-	{"name": "deviceTimestamp", "type": "long"},
-	{"name": "serviceTimestamp", "type": "long", "doc":"device should always pass null"},
-	{"name": "deviceId", "type": "string"},
-	{"name": "accountId", "type": "string"},
-	{"name": "profileId", "type": "string"},
-	{"name": "sessionId", "type": "string"},
-	{
-		"name": "componentVersion",
-		"type": {
-			"type" : "record",
-			"name" : "componentVersion",
-			"fields" : [
-							{"name": "component", "type": "string"},
-							{"name": "build", "type": "string"}
-						]
-		},
-	},
-	{"name": "ip", "type": ["null", "string"], "doc":"device should always pass null"},
-	{"name": "timeZone", "type": "string"},
-	{"name": "contentAttributionID", "type": ["null", "string"]},
-	{"name": "uiType", "type": "string"},
-	{"name": "uiAction", "type": "string"},
-	{"name": "sourcescreen", "type": "string"}
-  ]
+"namespace": "oncue.ws.client.ui",
+"type": "record",
+"name": "UIEvent",
+"event.version": "0.0.4",
+"doc": "Represent UI actions and consequent states",
+"fields": [
+{"name": "deviceTimestamp", "type": "long"},
+{"name": "serviceTimestamp", "type": ["null","long"], "doc":"device should always pass null"}
+{"name": "test", "type": "long"}
+{"name": "mytest", "type": "long"}
+]
 }

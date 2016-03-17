@@ -8,6 +8,8 @@
 
 import UIKit
 import BlueSteel
+import BlueSteel.Swift
+import SwiftyJSON
 
 struct componentVersionStruct {
 	var component: String
@@ -84,6 +86,14 @@ extension uiEvent : AvroValueConvertible {
 
 class ViewController: UIViewController {
 	
+	func jsonToNSData(json: AnyObject) -> NSData?{
+		do {
+			return try NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions.PrettyPrinted)
+		} catch let myJSONError {
+			print(myJSONError)
+		}
+		return nil;
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -94,14 +104,36 @@ class ViewController: UIViewController {
 			let schemaPath = NSBundle.mainBundle().pathForResource("UIEvent", ofType: "avsc")! as String
 			
 			// Load JSON Schema from Bundle
-			let jsonSchema = try String(contentsOfFile: schemaPath, usedEncoding: nil)
+			let jsonSchema = try String(contentsOfFile: schemaPath, encoding: NSUTF8StringEncoding)
 			print(jsonSchema)
 			
 			// Create Avro Schema
 			let schema = Schema(jsonSchema)
+			print(schema)
 
+			// Get UIEvent JSON Path from Bundle
+			let jsonPath = NSBundle.mainBundle().pathForResource("UIEvent", ofType: "json")! as String
+			
+			// Load JSON from Bundle
+			let json = try String(contentsOfFile: jsonPath, encoding: NSUTF8StringEncoding)
+			print(json)
+			
+			// Deserialize JSON to AvroValue
+//			let avro = AvroValue(stringLiteral: json)
+//			let avro = AvroValue(jsonSchema: jsonSchema, withBytes: Array(json.utf8))
+			let avro = AvroValue(jsonSchema: jsonSchema, withData: json.dataUsingEncoding(NSUTF8StringEncoding)!)
+					
+			print(avro)
+			
+			// Load Binary from Bundle
+			
 			// Create UIEvent Swift Struct
-			let uiEvt = uiEvent(
+/*
+			let rawBytes: [UInt8] = [0x6, 0x66, 0x6f, 0x6f]
+			let avro = AvroValue(schema: schema, withBytes: rawBytes)
+*/
+			
+/*			let uiEvt = uiEvent(
 										deviceTimestamp: 25,
 										serviceTimestamp: 77,
 										deviceId: "MyDeviceID",
@@ -129,9 +161,12 @@ class ViewController: UIViewController {
 			let deserialized = AvroValue(schema: schema, withBytes: serialized)
 			print("\nDeserialized uiEvent: \(deserialized) \n")
 			
+*/
 			
-		} catch let error as NSError {
-			print("Error loading JSON Schema: \(error)")
+			
+		}
+		catch let myError {
+			print("caught: \(myError)")
 		}
 		
 	}
