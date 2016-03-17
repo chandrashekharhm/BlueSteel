@@ -6,8 +6,7 @@
 "doc": "Represent UI actions and consequent states",
 "fields": [
 {"name": "deviceTimestamp", "type": "long"},
-{"name": "serviceTimestamp", "type": ["null","long"], "doc":"device should always pass null"}
-{"name": "test", "type": "long"}
-{"name": "mytest", "type": "long"}
+{"name": "deviceId", "type": "string"},
+{"name": "test", "type": "string"}
 ]
 }

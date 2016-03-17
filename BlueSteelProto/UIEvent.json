@@ -1,6 +1,4 @@
-{
-	"deviceTimestamp": 1458171163079,
-	"serviceTimestamp": null
-	"test": 1122,
-	"mytest": 234
+{"deviceTimestamp":1458171194689,"deviceId":"iOS-Phone-v-AEB53CFE-5DB5-4D8E-A2D8-D6048E1ADD58",
+	"test" : "55"
 }
+

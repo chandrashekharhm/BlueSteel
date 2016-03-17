@@ -119,9 +119,9 @@ class ViewController: UIViewController {
 			print(json)
 			
 			// Deserialize JSON to AvroValue
-//			let avro = AvroValue(stringLiteral: json)
+			let avro = AvroValue(stringLiteral: json)
 //			let avro = AvroValue(jsonSchema: jsonSchema, withBytes: Array(json.utf8))
-			let avro = AvroValue(jsonSchema: jsonSchema, withData: json.dataUsingEncoding(NSUTF8StringEncoding)!)
+//			let avro = AvroValue(jsonSchema: jsonSchema, withData: json.dataUsingEncoding(NSUTF8StringEncoding)!)
 					
 			print(avro)
 			
