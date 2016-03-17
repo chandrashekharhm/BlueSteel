@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		103DE0241C95E3440003FC67 /* BlueSteel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103DE0231C95E3440003FC67 /* BlueSteel.framework */; };
 		103DE0251C95E3440003FC67 /* BlueSteel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 103DE0231C95E3440003FC67 /* BlueSteel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		106E05E61C9A2B2B008D5A80 /* UIEvent.bin in Resources */ = {isa = PBXBuildFile; fileRef = 106E05E41C9A2B2B008D5A80 /* UIEvent.bin */; };
+		106E05E71C9A2B2B008D5A80 /* UIEvent.json in Resources */ = {isa = PBXBuildFile; fileRef = 106E05E51C9A2B2B008D5A80 /* UIEvent.json */; };
 		107990541C98B0D500D2BA15 /* DemoEvent.avsc in Resources */ = {isa = PBXBuildFile; fileRef = 107990531C98B0D500D2BA15 /* DemoEvent.avsc */; };
 		107FF7661C95DFD200076572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107FF7651C95DFD200076572 /* AppDelegate.swift */; };
 		107FF7681C95DFD200076572 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107FF7671C95DFD200076572 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		103DE0231C95E3440003FC67 /* BlueSteel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlueSteel.framework; path = Carthage/Build/iOS/BlueSteel.framework; sourceTree = "<group>"; };
+		106E05E41C9A2B2B008D5A80 /* UIEvent.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = UIEvent.bin; sourceTree = "<group>"; };
+		106E05E51C9A2B2B008D5A80 /* UIEvent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UIEvent.json; sourceTree = "<group>"; };
 		107990531C98B0D500D2BA15 /* DemoEvent.avsc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DemoEvent.avsc; sourceTree = "<group>"; };
 		107FF7621C95DFD200076572 /* BlueSteelProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueSteelProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		107FF7651C95DFD200076572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				107990531C98B0D500D2BA15 /* DemoEvent.avsc */,
+				106E05E41C9A2B2B008D5A80 /* UIEvent.bin */,
+				106E05E51C9A2B2B008D5A80 /* UIEvent.json */,
 				10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */,
 				107FF7651C95DFD200076572 /* AppDelegate.swift */,
 				107FF7671C95DFD200076572 /* ViewController.swift */,
@@ -157,10 +163,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				107FF7701C95DFD300076572 /* LaunchScreen.storyboard in Resources */,
+				106E05E71C9A2B2B008D5A80 /* UIEvent.json in Resources */,
 				107FF76D1C95DFD200076572 /* Assets.xcassets in Resources */,
 				107FF76B1C95DFD200076572 /* Main.storyboard in Resources */,
 				10D3CA451C95ECC80065C9F9 /* UIEvent.avsc in Resources */,
 				107990541C98B0D500D2BA15 /* DemoEvent.avsc in Resources */,
+				106E05E61C9A2B2B008D5A80 /* UIEvent.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
