@@ -7,6 +7,6 @@
 "fields": [
 {"name": "deviceTimestamp", "type": "long"},
 {"name": "serviceTimestamp", "type": "long"},
-{"name": "test", "type": "long"}
+{"name": "test", "type": "string"}
 ]
 }

@@ -11,17 +11,18 @@ import BlueSteel
 import BlueSteel.Swift
 import SwiftyJSON
 
+
+/*
+
 struct componentVersionStruct {
-	var component: String
-	var build: String
+var component: String
+var build: String
 }
 
 struct serviceTimestampStruct {
-	var val: Int64
+var val: Int64
 }
 
-
-/*
 extension serviceTimestampStruct : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.val.toAvro()))							// make sure value serialized
@@ -32,7 +33,7 @@ extension serviceTimestampStruct : AvroValueConvertible {
 struct uiEvent {
 	var deviceTimestamp: Int64
 	var serviceTimestamp: Int64
-	var test: Int64
+	var test: String
 }
 
 extension uiEvent : AvroValueConvertible {
@@ -40,7 +41,7 @@ extension uiEvent : AvroValueConvertible {
 		return AvroValue.AvroRecordValue([
 			"deviceTimestamp"		: self.deviceTimestamp.toAvro(),
 			"serviceTimestamp"		: self.serviceTimestamp.toAvro(),
-			"test"					: self.serviceTimestamp.toAvro()
+			"test"					: self.test.toAvro()
 			])
 	}
 }
@@ -63,7 +64,7 @@ class ViewController: UIViewController {
 			print(schema)
 			
 			let uiEvt = uiEvent(
-				deviceTimestamp: 44, serviceTimestamp: 55, test: 66
+				deviceTimestamp: 44, serviceTimestamp: 55, test: "66"
 			)
 			
 			// Cast UIEvent to Avro Types
