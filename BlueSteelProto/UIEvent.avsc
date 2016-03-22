@@ -6,7 +6,7 @@
 "doc": "Represent UI actions and consequent states",
 "fields": [
 {"name": "deviceTimestamp", "type": "long"},
-{"name": "deviceId", "type": "string"},
-{"name": "test", "type": "string"}
+{"name": "serviceTimestamp", "type": "long"},
+{"name": "test", "type": "long"}
 ]
 }

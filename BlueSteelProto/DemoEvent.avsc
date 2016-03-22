@@ -1,0 +1,10 @@
+{ "namespace": "oncue.test.demo",
+    "type": "record",
+    "name": "DemoEvent",
+    "doc": "A color has been picked.",
+    "fields": [
+        { "name": "timestamp", "type": "long" },
+        { "name": "ip", "type": "string" },
+        { "name": "color", "type": "string" }
+    ]
+}
