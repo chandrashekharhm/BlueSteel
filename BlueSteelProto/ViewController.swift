@@ -87,9 +87,11 @@ class ViewController: UIViewController {
 			var serialized: [UInt8] = uiEvt.toAvro().encode(schema)!
 			print("\nSerialized uiEvent: \(serialized) \n")
 			
+			// Get Documents Path for Simulator
 			let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
 			print(documentsPath)
 			
+			// Export Byte Array to a bin file for testing later
 			var export = NSData(bytes: serialized, length: serialized.count)
 			export.writeToFile(documentsPath + "/testme.bin", atomically: true)
 
