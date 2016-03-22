@@ -18,21 +18,22 @@ struct componentVersionStruct {
 var component: String
 var build: String
 }
+*/
 
 struct serviceTimestampStruct {
 var val: Int64
 }
+
 
 extension serviceTimestampStruct : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroUnionValue(1, Box<AvroValue>(self.val.toAvro()))							// make sure value serialized
 	}
 }
-*/
 
 struct uiEvent {
 	var deviceTimestamp: Int64
-	var serviceTimestamp: Int64
+	var serviceTimestamp: serviceTimestampStruct
 	var deviceId: String
 	var accountId: String
 	var profileId: String
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
 			
 			let uiEvt = uiEvent(
 				deviceTimestamp: 1458171126930,
-				serviceTimestamp: 55,
+				serviceTimestamp: serviceTimestampStruct(val: 55),
 				deviceId: "iOS-Phone-v-AEB53CFE-5DB5-4D8E-A2D8-D6048E1ADD58",
 				accountId: "-1",
 				profileId: "anon",
@@ -85,7 +86,14 @@ class ViewController: UIViewController {
 			// Serialize UIEvent to Byte Array
 			var serialized: [UInt8] = uiEvt.toAvro().encode(schema)!
 			print("\nSerialized uiEvent: \(serialized) \n")
+			
+			let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+			print(documentsPath)
+			
+			var export = NSData(bytes: serialized, length: serialized.count)
+			export.writeToFile(documentsPath + "/testme.bin", atomically: true)
 
+			
 			// Get UIEvent JSON Path from Bundle
 //			let jsonPath = NSBundle.mainBundle().pathForResource("UIEvent", ofType: "json")! as String
 			
