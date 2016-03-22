@@ -33,15 +33,22 @@ extension serviceTimestampStruct : AvroValueConvertible {
 struct uiEvent {
 	var deviceTimestamp: Int64
 	var serviceTimestamp: Int64
-	var test: String
+	var deviceId: String
+	var accountId: String
+	var profileId: String
+	var sessionId: String
 }
+
 
 extension uiEvent : AvroValueConvertible {
 	func toAvro() -> AvroValue {
 		return AvroValue.AvroRecordValue([
 			"deviceTimestamp"		: self.deviceTimestamp.toAvro(),
 			"serviceTimestamp"		: self.serviceTimestamp.toAvro(),
-			"test"					: self.test.toAvro()
+			"deviceId"				: self.deviceId.toAvro(),
+			"accountId"				: self.accountId.toAvro(),
+			"profileId"				: self.profileId.toAvro(),
+			"sessionId"				: self.sessionId.toAvro()
 			])
 	}
 }
@@ -64,7 +71,12 @@ class ViewController: UIViewController {
 			print(schema)
 			
 			let uiEvt = uiEvent(
-				deviceTimestamp: 44, serviceTimestamp: 55, test: "66"
+				deviceTimestamp: 44,
+				serviceTimestamp: 55,
+				deviceId: "1",
+				accountId: "2",
+				profileId: "3",
+				sessionId: "4"
 			)
 			
 			// Cast UIEvent to Avro Types
