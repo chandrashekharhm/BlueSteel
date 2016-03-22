@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		103DE0241C95E3440003FC67 /* BlueSteel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 103DE0231C95E3440003FC67 /* BlueSteel.framework */; };
 		103DE0251C95E3440003FC67 /* BlueSteel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 103DE0231C95E3440003FC67 /* BlueSteel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		106E05E61C9A2B2B008D5A80 /* UIEvent.bin in Resources */ = {isa = PBXBuildFile; fileRef = 106E05E41C9A2B2B008D5A80 /* UIEvent.bin */; };
+		106E05E61C9A2B2B008D5A80 /* onCue-UIEvent.bin in Resources */ = {isa = PBXBuildFile; fileRef = 106E05E41C9A2B2B008D5A80 /* onCue-UIEvent.bin */; };
 		106E05E71C9A2B2B008D5A80 /* UIEvent.json in Resources */ = {isa = PBXBuildFile; fileRef = 106E05E51C9A2B2B008D5A80 /* UIEvent.json */; };
 		107990541C98B0D500D2BA15 /* DemoEvent.avsc in Resources */ = {isa = PBXBuildFile; fileRef = 107990531C98B0D500D2BA15 /* DemoEvent.avsc */; };
 		107FF7661C95DFD200076572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107FF7651C95DFD200076572 /* AppDelegate.swift */; };
@@ -20,6 +20,7 @@
 		10D3CA421C95E6730065C9F9 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */; };
 		10D3CA431C95E6730065C9F9 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		10D3CA451C95ECC80065C9F9 /* UIEvent.avsc in Resources */ = {isa = PBXBuildFile; fileRef = 10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */; };
+		10EFE7181CA1E0B8005B59E4 /* New-UIEvent.bin in Resources */ = {isa = PBXBuildFile; fileRef = 10EFE7171CA1E0B8005B59E4 /* New-UIEvent.bin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,7 +40,7 @@
 
 /* Begin PBXFileReference section */
 		103DE0231C95E3440003FC67 /* BlueSteel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BlueSteel.framework; path = Carthage/Build/iOS/BlueSteel.framework; sourceTree = "<group>"; };
-		106E05E41C9A2B2B008D5A80 /* UIEvent.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = UIEvent.bin; sourceTree = "<group>"; };
+		106E05E41C9A2B2B008D5A80 /* onCue-UIEvent.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "onCue-UIEvent.bin"; sourceTree = "<group>"; };
 		106E05E51C9A2B2B008D5A80 /* UIEvent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UIEvent.json; sourceTree = "<group>"; };
 		107990531C98B0D500D2BA15 /* DemoEvent.avsc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DemoEvent.avsc; sourceTree = "<group>"; };
 		107FF7621C95DFD200076572 /* BlueSteelProto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueSteelProto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +52,7 @@
 		107FF7711C95DFD300076572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10D3CA411C95E6730065C9F9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIEvent.avsc; sourceTree = "<group>"; };
+		10EFE7171CA1E0B8005B59E4 /* New-UIEvent.bin */ = {isa = PBXFileReference; lastKnownFileType = archive.macbinary; path = "New-UIEvent.bin"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +89,9 @@
 		107FF7641C95DFD200076572 /* BlueSteelProto */ = {
 			isa = PBXGroup;
 			children = (
+				10EFE7171CA1E0B8005B59E4 /* New-UIEvent.bin */,
 				107990531C98B0D500D2BA15 /* DemoEvent.avsc */,
-				106E05E41C9A2B2B008D5A80 /* UIEvent.bin */,
+				106E05E41C9A2B2B008D5A80 /* onCue-UIEvent.bin */,
 				106E05E51C9A2B2B008D5A80 /* UIEvent.json */,
 				10D3CA441C95ECC80065C9F9 /* UIEvent.avsc */,
 				107FF7651C95DFD200076572 /* AppDelegate.swift */,
@@ -167,8 +170,9 @@
 				107FF76D1C95DFD200076572 /* Assets.xcassets in Resources */,
 				107FF76B1C95DFD200076572 /* Main.storyboard in Resources */,
 				10D3CA451C95ECC80065C9F9 /* UIEvent.avsc in Resources */,
+				10EFE7181CA1E0B8005B59E4 /* New-UIEvent.bin in Resources */,
 				107990541C98B0D500D2BA15 /* DemoEvent.avsc in Resources */,
-				106E05E61C9A2B2B008D5A80 /* UIEvent.bin in Resources */,
+				106E05E61C9A2B2B008D5A80 /* onCue-UIEvent.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

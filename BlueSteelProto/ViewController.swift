@@ -88,41 +88,19 @@ class ViewController: UIViewController {
 			print("\nSerialized uiEvent: \(serialized) \n")
 			
 			// Get Documents Path for Simulator
-			let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+			var documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
 			print(documentsPath)
+			
+			documentsPath += "/testme.bin"
 			
 			// Export Byte Array to a bin file for testing later
 			var export = NSData(bytes: serialized, length: serialized.count)
-			export.writeToFile(documentsPath + "/testme.bin", atomically: true)
-
-			
-			// Get UIEvent JSON Path from Bundle
-//			let jsonPath = NSBundle.mainBundle().pathForResource("UIEvent", ofType: "json")! as String
-			
-			// Load JSON from Bundle
-//			let json = try String(contentsOfFile: jsonPath, encoding: NSUTF8StringEncoding)
-//			print(json)
+			export.writeToFile(documentsPath, atomically: true)
 			
 			// Deserialize JSON to AvroValue
-//			let avro = AvroValue(stringLiteral: json)
-//			let avro = AvroValue(jsonSchema: jsonSchema, withBytes: Array(json.utf8))
-//			let avro = AvroValue(jsonSchema: jsonSchema, withData: json.dataUsingEncoding(NSUTF8StringEncoding)!)
-			
-			// Load Binary from Bundle
-			// Create UIEvent Swift Struct
-/*
-			let rawBytes: [UInt8] = [0x6, 0x66, 0x6f, 0x6f]
-			let avro = AvroValue(schema: schema, withBytes: rawBytes)
-			
-			let binPath = NSBundle.mainBundle().pathForResource("UIEvent", ofType: "bin")! as String
-			let data = NSData(contentsOfFile: binPath)
-			
-			let foo = AvroValue(schema: schema, withData: data!)
-			print(foo)
-
-			*/
-
-			
+			var avro = AvroValue(schema: schema, withBytes: serialized)
+			print(avro)
+						
 		}
 		catch let myError {
 			print("caught: \(myError)")
