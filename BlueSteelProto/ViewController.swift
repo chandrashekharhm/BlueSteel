@@ -71,12 +71,12 @@ class ViewController: UIViewController {
 			print(schema)
 			
 			let uiEvt = uiEvent(
-				deviceTimestamp: 44,
+				deviceTimestamp: 1458171126930,
 				serviceTimestamp: 55,
-				deviceId: "1",
-				accountId: "2",
-				profileId: "3",
-				sessionId: "4"
+				deviceId: "iOS-Phone-v-AEB53CFE-5DB5-4D8E-A2D8-D6048E1ADD58",
+				accountId: "-1",
+				profileId: "anon",
+				sessionId: "iOS-Phone-v-AEB53CFE-5DB5-4D8E-A2D8-D6048E1ADD58-1458171081"
 			)
 			
 			// Cast UIEvent to Avro Types
